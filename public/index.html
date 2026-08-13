@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Compass Tracker</title>
+  <style>
+    body { font-family: system-ui, Arial; margin: 12px; }
+    header { margin-bottom: 8px; }
+    #peers { display:flex; flex-direction:column; gap:12px; }
+    .peer { display:flex; align-items:center; gap:12px; padding:8px; border:1px solid #ddd; border-radius:8px; }
+    .arrow { width:60px; height:60px; display:flex; align-items:center; justify-content:center; }
+    svg { width:48px; height:48px; transform-origin:center center; transition: transform 0.2s linear; }
+    .info { font-size:0.9rem; color:#333; }
+    .muted { color:#666; font-size:0.8rem; }
+    #status { margin-top:8px; color:#333; }
+    #controls { margin-bottom:12px; display:flex; gap:8px; align-items:center; }
+    input[name=room] { padding:6px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>Compass Tracker</h2>
+    <div id="controls">
+      <label>Room: <input name="room" id="room" value="default"></label>
+      <label>Name: <input name="name" id="name" placeholder="Your name"></label>
+      <button id="startBtn">Start sharing</button>
+    </div>
+    <div id="status">Not started</div>
+  </header>
+
+  <main>
+    <div id="peers"></div>
+  </main>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="publicapp.js"></script>
+</body>
+</html>
